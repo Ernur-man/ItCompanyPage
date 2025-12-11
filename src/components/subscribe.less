@@ -1,0 +1,104 @@
+@import '../reset.less';
+
+.subscribe{
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    background: #0E6466;
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 60px;
+        form{
+            .flex_between;
+            position: relative;
+            .flexible{
+                position: absolute;
+                top: 20px;
+                left: 185px;
+                .txt;
+                color: #303030;
+                transition: 0.4s;
+            }
+            h3{
+                .txt;
+                font-family: 800;
+                font-size: 30px;
+                letter-spacing: 1px;
+                margin-right: 15px;
+                font-weight: 600;
+            }
+            input{
+                width: 100%;
+                padding: 18px;
+                margin-right: 20px;
+                outline: none;
+                background: #ADE7E9;
+                border: none;
+            }
+            button{
+                width: 180px;
+                padding: 16px 30px;
+                .txt;
+                letter-spacing: 1px;
+                color: #303030;
+                border: none;
+                border-bottom: 4px solid rgb(202, 201, 201);
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+
+.active_good{
+    position: absolute;
+    top: 6px;
+    left: 185px;
+    border: 0 !important;
+    font-size: 12px;
+    transition: 0.4s;
+}
+
+@media (max-width: 800px){
+    .subscribe{
+        padding-top: 60px;
+        padding-bottom: 20px;
+        .container{
+            width: 90%;
+            form{
+                justify-content: center;
+                flex-wrap: wrap;
+                h3{
+                    .txt;
+                    font-family: 800;
+                    font-size: 20px;
+                    letter-spacing: 1px;
+                    margin-right: 15px;
+                    font-weight: 600;
+                }
+                input{
+                    width: 100%;
+                    margin: 0;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                button{
+                    width: 100%;
+                }
+                .flexible{
+                    font-size: 18px;
+                    top: 60px;
+                    left: 20px;
+                }
+            }
+        }
+    }
+    .active_good{
+        position: absolute;
+        top: 50px;
+        left: 20px;
+        transition: 0.4s;
+    }
+}

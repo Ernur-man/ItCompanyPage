@@ -1,0 +1,87 @@
+@import '../reset.less';
+
+header{
+    width: 100%;
+    background: #161616;
+    padding: 12px;
+   
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+        .flex_between;
+        color: white;
+        img{
+            width: 250px;
+        }
+        menu{
+            width: 400px;
+            .flex_between;
+            .txt;
+            font-size: 16px;
+        }
+    }
+}
+
+.active{
+    transition: 0.3s;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #157F81;
+    font-weight: 800;
+}
+.nav-bar{
+        display: none;
+}
+
+
+
+@media (max-width: 800px){
+    header{
+        .container{
+            width: 90%;
+            img{
+                width: 150px;
+            }
+            menu{
+                display: none;
+            }
+        }
+    }
+    .nav-bar{
+        position: absolute;
+        top: 22px;
+        right: 20px;
+        display: block;
+        nav{
+            width: 30px;
+            padding: 2px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 4px;
+        }
+    }
+    .header-aside{
+        background: #161616;
+        position: fixed;
+        z-index: 99999999999;
+        width: 80%;
+        height: 100vh;
+        padding: 30px;
+        .flex_center;
+        align-items: flex-start;
+        .container{
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 80px;
+            menu{
+                .txt;
+                .flex_between;
+                align-items: flex-start;
+                flex-direction: column;
+                .good{
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}

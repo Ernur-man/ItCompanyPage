@@ -1,0 +1,127 @@
+@import '../../../reset.less';
+
+.firstAbout{
+    width: 100%;
+    background: #0E6466;
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        .txt;
+        img{
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+        h2{
+            background: white;
+            .txt;
+            color: black;
+            font-size: 60px;
+            letter-spacing: 3px;
+            word-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        article{
+            .flex_between;
+            align-items: flex-start;
+            aside{
+                width: 400px;
+                text-align: left;
+                h3{
+                    .txt;
+                    font-size: 26px;
+                    border-bottom: 1px solid white;
+                    display: inline;
+                    padding-bottom: 10px;
+                }
+                &:nth-child(2){
+                    p{
+                        margin-top: 50px;
+                        .txt;
+                        word-spacing: 3px;
+                        line-height: 26px;
+                        margin-bottom: 14px;
+                    }
+                    button{
+                        padding: 14px 60px;
+                        .txt;
+                        color: #303030;
+                        border: none;
+                        border-bottom: 4px solid rgb(215, 213, 213);
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                    }
+                }
+                &:nth-child(1){
+                    width: 700px;
+                    text-align: left;
+                    p{
+                        margin-bottom: 40px;
+                        line-height: 24px;
+                        span{
+                            display: block;
+                            margin-bottom: 20px;
+                            font-weight: 700;
+                        }
+                        &:nth-child(1){
+                            letter-spacing: 2px;
+                        }
+                    }
+                    li{
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 800px){
+    .firstAbout{
+        .container{
+            width: 90%;
+            margin: 0 auto;
+            h2{
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+            article{
+                flex-wrap: wrap;
+                p{
+                    font-size: 16px;
+                    line-height: 20px;
+                    word-spacing: 1px;
+                }
+                h3{
+                    font-size: 20px !important;
+                }
+                button{
+                    font-size: 14px !important;
+                    padding: 12px 30px !important;
+                }
+                aside{
+                    &:nth-child(1){
+                        p{
+                            margin-bottom: 30px;
+                            font-size: 14px;
+                            line-height: 18px;
+                            word-spacing: 1px;
+                        }
+                    }
+                    &:nth-child(2){
+                        p{
+                            margin-bottom: 30px;
+                            font-size: 16px;
+                            line-height: 20px;
+                            word-spacing: 1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

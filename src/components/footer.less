@@ -1,0 +1,44 @@
+@import '../reset.less';
+
+footer{
+    width: 100%;
+    background: #0E6466;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+        .txt;
+        font-size: 16px;
+        text-align: center;
+        .flex_between;
+        flex-direction: column;
+        border-top: 0.5px solid  #157F81;
+        padding-top: 30px;
+        p{
+            margin-bottom: 20px;
+        }
+        h4{
+            border-top: 0.5px solid  #157F81;
+            padding-top: 20px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+@media (max-width: 800px) {
+    footer{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .container{
+            width: 90%;
+            h4{
+                font-size: 18px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+    }
+}

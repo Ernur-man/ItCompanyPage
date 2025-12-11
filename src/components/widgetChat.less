@@ -1,0 +1,136 @@
+@import '../reset.less';
+.widget{
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 100px;
+    padding: 10px;
+    background: #0E6466; 
+    z-index: 9999999999999999;
+    box-shadow: 1px 1px 3px 3px rgba(32, 32, 32, 0.358);
+    .flex_center;
+    i{
+        color: white;
+        font-size: 30px;
+    }
+   
+}
+
+.layer{
+    width: 100%;
+    height: 100svh;
+    position: absolute;
+    background: none;
+}
+ .ModalWindow{
+        width: 360px;
+        position: fixed;
+        z-index: 9999999999;
+        bottom: 90px;
+        right: 25px;
+        background: white;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 3px;
+        article{
+            width: 100%;
+            padding: 20px;
+            background: #0E6466; 
+            text-align: left;
+            h3{
+                .txt;
+                font-size: 25px;
+            }
+        }
+        form{
+            width: 100%;
+            padding: 20px;
+            position: relative;
+            input,button, textarea{
+                width: 100%;
+                .txt;
+                border: none;
+                margin-bottom: 30px;
+                padding: 16px;
+                resize: none;
+                outline: none;
+                color: #333D3E;
+                background: #F1F1F1;
+            }
+            textarea{
+                height: 120px;
+            }
+            button{
+                width: 140px;
+                background: #0E6466;
+                font-weight: 600;
+                letter-spacing: 1px;
+                border-bottom: 4px solid #0a4445;
+                .txt;
+            }
+        }
+        p{
+            margin-bottom: 20px;
+            .txt;
+            font-size: 16px;
+            color: gray;
+            a{
+                color: #0E6466;
+            }
+        }
+    }
+
+
+
+.active_nameModal{
+    position: absolute;
+    font-size: 12px !important;
+    top: 25px;
+    left: 35px;
+    transition: 0.3s;
+}   
+.active_mailModal{
+    position: absolute;
+    font-size: 12px !important;
+    top: 110px;
+    left: 35px;
+    transition: 0.3s;
+}
+.nameInpModal{
+    position: absolute;
+    font-size: 20px;
+    top: 35px;
+    left: 35px;
+    transition: 0.3s;
+}
+.mailInpModal{
+    position: absolute;
+    font-size: 20px;
+    top: 120px;
+    left: 35px;
+    transition: 0.3s;
+}
+
+@media (max-width: 800px){
+    .ModalWindow{
+        width: 100%;
+        height: 100svh;
+        bottom: 0;
+        right: 0;
+        form{
+            button{
+                width: 100%;
+            }
+        }
+        i{
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            top: 25px;
+            right: 20px;
+        }
+    }
+    
+}
