@@ -37,7 +37,7 @@ export default function Header(){
                             <menu>
                                 {
                                     menu.map((el,i)=>(
-                                        <Link key={i} to={el == "HOME" ? "itmnew/" : `itmnew/${el}`} className={active === el ? "active" : "good"} onClick={()=>setActive(el)}>{el}</Link>
+                                        <Link key={i} to={el == "HOME" ? "itmnew2/" : `itmnew2/${el}`} className={active === el ? "active" : "good"} onClick={()=>setActive(el)}>{el}</Link>
                                     ))
                                 }
                             </menu>
@@ -56,7 +56,7 @@ export default function Header(){
                     <menu>
                         {
                             menu.map((el,i)=>(
-                                <Link key={i} to={el == "/HOME" ? "itmnew/HOME" : `itmnew/${el}`} className={active === el ? "active" : ""} onClick={()=>setActive(el)}>{el}</Link>
+                                <Link key={i} to={el == "/HOME" ? "itmnew2/HOME" : `itmnew2/${el}`} className={active === el ? "active" : ""} onClick={()=>setActive(el)}>{el}</Link>
                             ))
                         }
                     </menu>

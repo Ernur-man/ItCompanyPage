@@ -26,10 +26,10 @@ function App() {
       </Suspense>
 
       <Routes>
-        <Route path='itmnew/' element={<HomePage/>}/>
-        <Route path='itmnew/ABOUT' element={<AboutPage/>}/>
-        <Route path='itmnew/SERVICES' element={<ServicesPage/>}/>
-        <Route path='itmnew/CONTACT' element={<ContactPage/>}/>
+        <Route path='itmnew2/' element={<HomePage/>}/>
+        <Route path='itmnew2/ABOUT' element={<AboutPage/>}/>
+        <Route path='itmnew2/SERVICES' element={<ServicesPage/>}/>
+        <Route path='itmnew2/CONTACT' element={<ContactPage/>}/>
       </Routes>
 
       <Suspense fallback={<div>Loading...</div>}>
