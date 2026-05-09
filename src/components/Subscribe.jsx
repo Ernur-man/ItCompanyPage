@@ -1,6 +1,8 @@
 import './subscribe.less'
 import { useRef, useState } from 'react'
 
+import axios from 'axios'
+
 export default function Subscribe(){
     const inp = useRef(null)
     const [element, setElement] = useState('flexible')
@@ -16,6 +18,21 @@ export default function Subscribe(){
         }   
     }
 
+    async function sendWorkflow(e){
+        e.preventDefault()
+        try{
+            const response = await axios.post('https://ai.mnu.kz/webhook-test/subscribe-form', {
+                email: inp.current.value,
+                date: new Date().toISOString(),
+                source: 'footer_form'
+            })
+            console.log('Данные отправлены!', response.data);
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
     return(
         <>
             <main className="subscribe">
@@ -24,7 +41,7 @@ export default function Subscribe(){
                         <h3>Subscribe</h3>
                         <input ref={inp} type="text" onBlur={removeMovePlaceholder} onClick={MovePLaceholder}/>
                         <p className={element} onClick={MovePLaceholder}>Email Address</p>
-                        <button>Sign Up</button>
+                        <button onClick={sendWorkflow}>Sign Up</button>
                     </form>
                 </div>
             </main>
