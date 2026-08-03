@@ -1,50 +1,85 @@
-import './subscribe.less'
-import { useRef, useState } from 'react'
+import "./subscribe.less";
+import { useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
-import axios from 'axios'
+export default function Subscribe() {
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm();
 
-export default function Subscribe(){
-    const inp = useRef(null)
-    const [element, setElement] = useState('flexible')
+    const inp = useRef(null);
+    const [element, setElement] = useState("flexible");
+    const [activeEmail, setActiveEmail] = useState(false);
 
-    function MovePLaceholder(){
-        const el = inp.current
-        setElement('active_good')
-        el.focus()  
+    function MovePlaceholder() {
+        setElement("active_good");
+        inp.current.focus();
     }
-    function removeMovePlaceholder(){
-        if(!inp.current.value){
-            setElement('flexible')
-        }   
-    }
 
-    async function sendWorkflow(e){
-        e.preventDefault()
-        try{
-            const response = await axios.post('https://ai.mnu.kz/webhook-test/subscribe-form', {
-                email: inp.current.value,
-                date: new Date().toISOString(),
-                source: 'footer_form'
-            })
-            console.log('Данные отправлены!', response.data);
-        }
-        catch(err){
-            console.log(err)
+    function removeMovePlaceholder() {
+        if (!inp.current.value) {
+            setElement("flexible");
         }
     }
 
-    return(
-        <>
-            <main className="subscribe">
-                <div className="container">
-                    <form>
-                        <h3>Subscribe</h3>
-                        <input ref={inp} type="text" onBlur={removeMovePlaceholder} onClick={MovePLaceholder}/>
-                        <p className={element} onClick={MovePLaceholder}>Email Address</p>
-                        <button onClick={sendWorkflow}>Sign Up</button>
-                    </form>
-                </div>
-            </main>
-        </>
-    )
+    function onSubmit(data) {
+        console.log(data);
+
+        setActiveEmail(true);
+
+        setTimeout(() => {
+            setActiveEmail(false);
+            reset();
+            setElement("flexible");
+        }, 3000);
+    }
+
+    const { ref, ...rest } = register("email", {
+        required: "Email is required",
+        pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "Invalid email address",
+        },
+    });
+
+    return (
+        <main className="subscribe">
+            <div className={activeEmail ? "message active" : "message"}>
+                <p>Success!</p>
+            </div>
+
+            <div className="container">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <h3>Subscribe</h3>
+
+                    <input
+                        type="text"
+                        {...rest}
+                        ref={(e) => {
+                            ref(e);
+                            inp.current = e;
+                        }}
+                        onFocus={MovePlaceholder}
+                        onBlur={removeMovePlaceholder}
+                    />
+
+                    {errors.email && (
+                        <p className="error">{errors.email.message}</p>
+                    )}
+
+                    <p
+                        className={element}
+                        onClick={MovePlaceholder}
+                    >
+                        Email Address
+                    </p>
+
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </main>
+    );
 }

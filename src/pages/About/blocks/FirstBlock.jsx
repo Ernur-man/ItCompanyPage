@@ -28,7 +28,7 @@ export default function FirstBlock(){
                                 We appreciate the individual approach and close cooperation so that each strategy is maximally adapted to your needs. Together with us, you will open new horizons for your business and ensure its sustainable growth.
                                 Our team is able to recognize hidden client opportunities, anticipate challenges, and create strategies that work in practice rather than remaining on paper.
                             </p>
-                            <button>OUR SERVICES</button>
+                            <button><a href="/itmnew2/SERVICES">OUR SERVICES</a></button>
                         </aside>
                     </article>
                 </div>

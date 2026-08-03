@@ -8,7 +8,7 @@ export default function WidgetChat(){
 
     const inpNameModal = useRef(null)
     const inpMailModal = useRef(null)
-    
+
     function movePlaceholderNameModal(){
         const el = inpNameModal.current
         setActiveName('active_nameModal')
@@ -39,9 +39,9 @@ export default function WidgetChat(){
        }
     }
 
-    
+
     window.addEventListener('click', checkModal)
-       
+
     return(
         <>
                 <div className="widget" onClick={()=>setActiveModal(!activeModal)}>
@@ -52,7 +52,6 @@ export default function WidgetChat(){
                 {
                     activeModal && (
                             <aside className='ModalWindow'>
-                                {activeModal && (<i className="fa-solid fa-x" onClick={()=>setActiveModal(!activeModal)}></i>)}
                                 <article>
                                     <h3>ITM Consulting</h3>
                                 </article>

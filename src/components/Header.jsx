@@ -1,67 +1,40 @@
-import { Link } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom";
 import './header.less'
-import { useEffect, useState } from "react"
-import logo from '../assets/LOGO.webp'
+import logo from '../assets/logo_itm.webp'
+import { useEffect } from "react";
 
+export default function Header() {
+    const location = useLocation();
 
-export default function Header(){
-    const [active, setActive] = useState('')
-    const [activeHeader, setActiveHeader] = useState(false)
-    const menu = ["HOME", "ABOUT", "SERVICES", "CONTACT"]
-    
-    useEffect(()=>{
-        if(active){
-            localStorage.setItem('nav',active)
-        }
-        
-    },[active])
+    const menu = ["HOME", "ABOUT", "SERVICES", "CONTACT"];
 
     useEffect(()=>{
-        const newActive = localStorage.getItem('nav')
-        setActive(newActive)
-    },[])
 
-    function removeHeader(e){
-        const tag_Name = e.target.tagName
-        if(tag_Name === "DIV" || tag_Name === "MAIN"){
-            setActiveHeader(false)
-        }
-    }
-    window.addEventListener('click', removeHeader)
-    return(
-        <>
-            {
-                activeHeader && (
-                    <aside className="header-aside">
-                        <div className="container">
-                            <menu>
-                                {
-                                    menu.map((el,i)=>(
-                                        <Link key={i} to={el == "HOME" ? "itmnew2/" : `itmnew2/${el}`} className={active === el ? "active" : "good"} onClick={()=>setActive(el)}>{el}</Link>
-                                    ))
-                                }
-                            </menu>
-                        </div>
-                    </aside>
-                )
-            }
-            <div className="nav-bar" onClick={()=>setActiveHeader(!activeHeader)}>
-                <nav></nav>
-                <nav></nav>
-                <nav></nav>
+    }, [location.pathname])
+
+    return (
+        <header>
+            <div className="container">
+                <img src={logo} alt="Logo" />
+                <nav>
+                    {menu.map((item) => {
+                        const path =
+                            item === "HOME"
+                                ? "/itmnew2/HOME"
+                                : `/itmnew2/${item.toLowerCase()}`;
+
+                        return (
+                            <NavLink
+                                key={item}
+                                to={path}
+                                className={location.pathname === path ? "active" : ""}
+                            >
+                                {item}
+                            </NavLink>
+                        );
+                    })}
+                </nav>
             </div>
-            <header>
-                <div className="container">
-                    <img src={logo}/>
-                    <menu>
-                        {
-                            menu.map((el,i)=>(
-                                <Link key={i} to={el == "/HOME" ? "itmnew2/HOME" : `itmnew2/${el}`} className={active === el ? "active" : ""} onClick={()=>setActive(el)}>{el}</Link>
-                            ))
-                        }
-                    </menu>
-                </div>
-            </header>
-        </>
-    )
+        </header>
+    );
 }

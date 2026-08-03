@@ -8,10 +8,10 @@ export default function SecondBlock(){
                     <article>
                         <h3>About Us</h3>
                         <p>
-                            ITM Consulting is your reliable partner in business consulting. We specialize in providing 
-                            comprehensive solutions that help companies reach new heights, optimize processes and implement strategic goals.  
-                            Our services include business process analysis, development of development strategies, 
-                            implementation of innovative technologies, change management and increasing team efficiency. With our extensive experience and 
+                            ITM Consulting is your reliable partner in business consulting. We specialize in providing
+                            comprehensive solutions that help companies reach new heights, optimize processes and implement strategic goals.
+                            Our services include business process analysis, development of development strategies,
+                            implementation of innovative technologies, change management and increasing team efficiency. With our extensive experience and
                             expert knowledge, we help our clients overcome complex challenges and take advantage of new opportunities in the market.
                         </p>
                         <h3>Why Us?</h3>
@@ -20,7 +20,7 @@ export default function SecondBlock(){
                             Our team is able to recognize hidden client opportunities, anticipate challenges, and create strategies that work in practice rather than remaining on paper.
                         </p>
                         <button>
-                            <Link to="/SERVICES">Services</Link>
+                            <Link to="/itmnew2/SERVICES">Services</Link>
                         </button>
                     </article>
                 </div>

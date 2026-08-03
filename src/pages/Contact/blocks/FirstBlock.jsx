@@ -9,7 +9,7 @@ export default function FirstBlock(){
 
     const inpName = useRef(null)
     const inpMail = useRef(null)
-    
+
     function movePlaceholderName(){
         const el = inpName.current
         setActiveName('active_name')
@@ -33,6 +33,9 @@ export default function FirstBlock(){
         }
     }
 
+    function handleSubmit(e){
+        e.preventDefault()
+    }
     return(
         <main className="contact">
             <div className="container">
@@ -40,11 +43,11 @@ export default function FirstBlock(){
                 <article>
                     <aside>
                         <h3>Drop us a line</h3>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <p className={activeName} onClick={movePlaceholderName}>Name</p>
-                            <input type="text" ref={inpName} onBlur={removePlaceholderName} onClick={movePlaceholderName}/>
+                            <input type="text" ref={inpName} onBlur={removePlaceholderName} onClick={movePlaceholderName} required/>
                             <p className={activeMail} onClick={movePlaceholderMail}>Email*</p>
-                            <input type="text" ref={inpMail} onClick={movePlaceholderMail} onBlur={removePlaceholderMail}/>
+                            <input type="text" ref={inpMail} onClick={movePlaceholderMail} onBlur={removePlaceholderMail} required/>
                             <textarea placeholder="Message"></textarea>
                             <button>SEND</button>
                         </form>
@@ -61,10 +64,10 @@ export default function FirstBlock(){
                         <div style={{height: activeTable ? '250px': ''}}>
                             <h3>
                                 <span onClick={() => setActiveTable(!activeTable)}>
-                                    {activeTable 
-                                        ? 'Mon 09:00 am - 06:00 pm' 
+                                    {activeTable
+                                        ? 'Mon 09:00 am - 06:00 pm'
                                         : <>
-                                            Open Today      
+                                            Open Today
                                             <p>09:00 am - 06:00 pm</p>
                                           </>
                                     }
@@ -103,9 +106,9 @@ export default function FirstBlock(){
                                     </table>
                                 )
                             }
-                            
+
                         </div>
-                        
+
                     </aside>
                 </article>
             </div>
