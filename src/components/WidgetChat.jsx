@@ -33,10 +33,17 @@ export default function WidgetChat(){
     }
 
     function checkModal(e){
-        const tag_Name = e.target.tagName
+       const tag_Name = e.target.tagName
        if(tag_Name === "DIV" || tag_Name === "MAIN" ){
             setActiveModal(false)
        }
+    }
+    function handleSubmit(e){
+        e.preventDefault();
+        e.target.reset()
+        setTimeout(()=>{
+            setActiveModal(false)
+        }, 1000)
     }
 
 
@@ -55,11 +62,11 @@ export default function WidgetChat(){
                                 <article>
                                     <h3>ITM Consulting</h3>
                                 </article>
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <p className={activeName} onClick={movePlaceholderNameModal}>Name</p>
-                                    <input type="text" ref={inpNameModal} onBlur={removePlaceholderNameModal} onClick={movePlaceholderNameModal}/>
+                                    <input type="text" ref={inpNameModal} onBlur={removePlaceholderNameModal} onClick={movePlaceholderNameModal} required/>
                                     <p className={activeMail} onClick={movePlaceholderMailModal}>Email*</p>
-                                    <input type="text" ref={inpMailModal} onClick={movePlaceholderMailModal} onBlur={removePlaceholderMailModal}/>
+                                    <input type="text" ref={inpMailModal} onClick={movePlaceholderMailModal} onBlur={removePlaceholderMailModal} required/>
                                     <textarea placeholder='How can we help?*'></textarea>
                                     <button>SEND</button>
                                 </form>
