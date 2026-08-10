@@ -1,6 +1,7 @@
 import "./subscribe.less";
-import { useRef, useState } from "react";
+import { act, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import ModalWindow from "./ModalWindow";
 
 export default function Subscribe() {
     const {
@@ -47,9 +48,7 @@ export default function Subscribe() {
 
     return (
         <main className="subscribe">
-            <div className={activeEmail ? "message active" : "message"}>
-                <p>Success!</p>
-            </div>
+            <ModalWindow active={activeEmail}/>
 
             <div className="container">
                 <form onSubmit={handleSubmit(onSubmit)}>

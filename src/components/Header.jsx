@@ -9,7 +9,7 @@ export default function Header() {
     return (
         <header>
             <div className="container">
-                <Link to="/itmnew2/">
+                <Link to="/ItCompanyPage/">
                     <img src={logo} alt="Logo" loading="lazy"/>
                 </Link>
 
@@ -17,8 +17,8 @@ export default function Header() {
                     {menu.map((item) => {
                         const path =
                             item === "HOME"
-                                ? "/itmnew2/"
-                                : `/itmnew2/${item.toLowerCase()}`;
+                                ? "/ItCompanyPage/"
+                                : `/ItCompanyPage/${item.toLowerCase()}`;
 
                         return (
                             <NavLink

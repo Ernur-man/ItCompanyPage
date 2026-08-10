@@ -20,7 +20,7 @@ export default function SecondBlock(){
                             Our team is able to recognize hidden client opportunities, anticipate challenges, and create strategies that work in practice rather than remaining on paper.
                         </p>
                         <button>
-                            <Link to="/itmnew2/SERVICES">Services</Link>
+                            <Link to="/ItCompanyPage/SERVICES">Services</Link>
                         </button>
                     </article>
                 </div>

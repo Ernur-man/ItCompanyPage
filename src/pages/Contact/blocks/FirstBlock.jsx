@@ -1,11 +1,17 @@
+import axios from 'axios'
 import './first.less'
 import { useRef, useState } from 'react'
-
+import ModalWindow from'../../../components/ModalWindow'
 export default function FirstBlock(){
     const [activeName, setActiveName] = useState('nameInp')
     const [activeMail, setActiveMail] = useState('mailInp')
     const [activeTable, setActiveTable] = useState(false)
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('')
+    const [success, setSuccess] = useState(false)
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const inpName = useRef(null)
     const inpMail = useRef(null)
@@ -35,23 +41,41 @@ export default function FirstBlock(){
 
     function handleSubmit(e){
         e.preventDefault()
+        if(!emailRegex.test(email) && name.length > 3){
+            setEmail("Enter correct email!")
+            setName("Name length must be higher 3!")
+        };
+        axios.post('https://formspree.io/f/xljrdpbg', {
+            name: name,
+            email: email
+        })
+        .then(()=>{
+            setSuccess(true)
+            setName("")
+            setEmail("")
+            setTimeout(()=>{
+                setSuccess(false)
+            }, 2000)
+        })
+        .catch((e)=>alert("Error: ", e))
     }
     return(
         <main className="contact">
             <div className="container">
                 <h2>CONTACT US</h2>
                 <article>
-                    <aside>
+                    <aside className='form_aside' >
                         <h3>Drop us a line</h3>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} method="POST">
                             <p className={activeName} onClick={movePlaceholderName}>Name</p>
-                            <input type="text" ref={inpName} onBlur={removePlaceholderName} onClick={movePlaceholderName} required/>
+                            <input type="text" ref={inpName} onBlur={removePlaceholderName} value={name} onChange={(e)=>setName(e.target.value)} onClick={movePlaceholderName} required/>
                             <p className={activeMail} onClick={movePlaceholderMail}>Email*</p>
-                            <input type="text" ref={inpMail} onClick={movePlaceholderMail} onBlur={removePlaceholderMail} required/>
-                            <textarea placeholder="Message"></textarea>
+                            <input type="email" ref={inpMail} onClick={movePlaceholderMail} value={email} onChange={(e)=>setEmail(e.target.value)} onBlur={removePlaceholderMail} required/>
+                            <textarea placeholder="Message" value={message} onChange={(e)=>setMessage(e.target.value)}></textarea>
                             <button>SEND</button>
                         </form>
                         <p>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+                        <ModalWindow active={success}/>
                     </aside>
                     <aside>
                         <h3>ITM Consulting</h3>

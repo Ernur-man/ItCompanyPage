@@ -9,7 +9,7 @@ export default function FirstBlock(){
                 <div className="container">
                     <article>
                         <span>STRATEGY.<p>HEIGHT.</p><br/><p>SUCCESS.</p></span>
-                        <button><Link to="/itmnew2/CONTACT">Contact Us</Link></button>
+                        <button><Link to="/ItCompanyPage/CONTACT">Contact Us</Link></button>
                     </article>
                 </div>
             </main>
